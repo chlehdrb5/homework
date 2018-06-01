@@ -1,7 +1,7 @@
 #include <stdio.h> 
 #include <stdlib.h>
 
-// 20180600 ÃÖµ¿±Ô 20181366 ÀÌ¼®¹Î 
+// 20180600 ÃƒÃ–ÂµÂ¿Â±Ã” 20181366 Ã€ÃŒÂ¼Â®Â¹ÃŽ 
 void read(char s[])
 {
 	int c, i = 0;
@@ -49,7 +49,9 @@ int clac(char *s)
 }
 int main() {
 	char line[100];
-	printf("INPUT (When divided, only the quotient are printed.) : ");
+	printf("-------Calculator-------");
+	printf("Don't use spacebar. only two natural number is calculated. When divided, only the quotient are printed.\n");
+	printf("INPUT (Ex : 5*4) :  ");
 	read(line);
 	printf("\nRESULT = %d\n\n", clac(line));
 	return 0;
