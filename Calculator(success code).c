@@ -42,7 +42,7 @@ int clac(char *s)
 		ret = num1 / num2;
 		break;
 	default:
-		printf("\nError : Exit Program\n\n");
+		printf("\nExit Program\n\n");
 		exit(1);
 	}
 	return ret;
