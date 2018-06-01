@@ -1,7 +1,7 @@
 #include <stdio.h> 
 #include <stdlib.h>
 
-// 20180600 ÃÖµ¿±Ô 20181366 ÀÌ¼®¹Î 
+// 20180600 최동규 20181366 이석민 
 void read(char s[])
 {
 	int c, i = 0;
@@ -47,12 +47,17 @@ int clac(char *s)
 	}
 	return ret;
 }
+
 int main() {
-	char line[100];
-	printf("                -------Calculator-------\n");
-	printf("Don't use spacebar. only two natural number is calculated. When divided, only the quotient are printed.\n");
-	printf("INPUT (Ex : 5*4) :  ");
-	read(line);
-	printf("\nRESULT = %d\n\n", clac(line));
+	printf("               ---------------Calculator-------------\n");
+	printf("Don't use spacebar. only two natural number is calculated. When divided, only the quotient are printed.\n\n");
+	printf("If you want to stop this program, Input any alphabet.\n\n");
+	while (1) {
+		char line[100];
+		printf("INPUT (Ex : 5*4) :  ");
+		read(line);
+		printf("\nRESULT = %d\n\n", clac(line));
+	}
+	
 	return 0;
 }
