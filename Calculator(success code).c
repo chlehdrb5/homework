@@ -49,7 +49,7 @@ int clac(char *s)
 }
 int main() {
 	char line[100];
-	printf("-------Calculator-------");
+	printf("                -------Calculator-------\n");
 	printf("Don't use spacebar. only two natural number is calculated. When divided, only the quotient are printed.\n");
 	printf("INPUT (Ex : 5*4) :  ");
 	read(line);
