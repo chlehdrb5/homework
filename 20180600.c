@@ -35,7 +35,7 @@ int main() {
 	midprint(head, count);
 	printf("역순 : ");
 	reverse_print(head);
-	printf("\n홀수번째 노드 삭제:\n");
+	printf("\n홀수번째 노드 삭제..\n");
 	head = evennode(head);
 	printf("삭제 결과 : ");
 	printlist(head);
