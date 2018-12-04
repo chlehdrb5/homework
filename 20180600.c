@@ -21,31 +21,31 @@ void allnodefree(link head);
 int main() {
 	int num = 0, count;
 	link head = NULL;
-	printf("¶ç¾î¾²±â·Î Á¤¼ö°ªÀ» ÀÔ·ÂÇÏ½Ã¿À (¸¶Áö¸·¿¡ -1À» ÀÔ·Â ÈÄ ¿£ÅÍ) : ");
+	printf("ë„ì–´ì“°ê¸°ë¡œ ì •ìˆ˜ê°’ì„ ìž…ë ¥í•˜ì‹œì˜¤ (ë§ˆì§€ë§‰ì— -1ì„ ìž…ë ¥ í›„ ì—”í„°) : ");
 	while (1) {
 		scanf_s("%d", &num);
 		if (num == -1) //
 			break;
 		head=append(head, createnode(num));
 	}
-	printf("ÀÔ·Â ¼øÀ¸·Î Ãâ·Â : ");
+	printf("ìž…ë ¥ ìˆœìœ¼ë¡œ ì¶œë ¥ : ");
 	count = printlist(head);
-	printf("\nÀÔ·ÂµÈ ÀÚ·áÀÇ °³¼ö : %d\n", count);
-	printf("°¡¿îµ¥ ÀÔ·Â °ª : ");
+	printf("\nìž…ë ¥ëœ ìžë£Œì˜ ê°œìˆ˜ : %d\n", count);
+	printf("ê°€ìš´ë° ìž…ë ¥ ê°’ : ");
 	midprint(head, count);
-	printf("¿ª¼ø : ");
+	printf("ì—­ìˆœ : ");
 	reverse_print(head);
-	printf("\nÈ¦¼ö¹øÂ° ³ëµå »èÁ¦:\n");
+	printf("\ní™€ìˆ˜ë²ˆì§¸ ë…¸ë“œ ì‚­ì œ:\n");
 	head = evennode(head);
-	printf("»èÁ¦ °á°ú : ");
+	printf("ì‚­ì œ ê²°ê³¼ : ");
 	printlist(head);
-	allnodefree(head); // µ¿Àû ¸Þ¸ð¸® ÇØÁ¦
+	allnodefree(head); // ë™ì  ë©”ëª¨ë¦¬ í•´ì œ
 	printf("Finish..\n");
 	system("pause");
 	return 0;
 }
 
-link createnode(int num) { // ³ëµå »ý¼º
+link createnode(int num) { // ë…¸ë“œ ìƒì„±
 	link cur;
 	cur = (link)malloc(sizeof(node));
 	cur->value = num;
@@ -53,7 +53,7 @@ link createnode(int num) { // ³ëµå »ý¼º
 	return cur;
 }
 
-link append(link head, link cur) { // ³ëµå Ãß°¡
+link append(link head, link cur) { // ë…¸ë“œ ì¶”ê°€
 	link nextnode = head;
 	if (head == NULL) {
 		head = cur;
@@ -66,7 +66,7 @@ link append(link head, link cur) { // ³ëµå Ãß°¡
 	return head;
 }
 
-int printlist(link head) { //³ëµå Ãâ·Â (Ã³À½ºÎÅÍ ³¡±îÁö) µ¿½Ã¿¡ ³ëµåÀÇ °³¼ö Ä«¿îÆ®
+int printlist(link head) { //ë…¸ë“œ ì¶œë ¥ (ì²˜ìŒë¶€í„° ëê¹Œì§€) ë™ì‹œì— ë…¸ë“œì˜ ê°œìˆ˜ ì¹´ìš´íŠ¸
 	int count = 0;
 	link nextnode = head;
 	while (nextnode != NULL) {
@@ -77,7 +77,7 @@ int printlist(link head) { //³ëµå Ãâ·Â (Ã³À½ºÎÅÍ ³¡±îÁö) µ¿½Ã¿¡ ³ëµåÀÇ °³¼ö Ä«¿î
 	return count;
 }
 
-void midprint(link head,int count) { // °¡¿îµ¥ ÀÔ·Â °ª Ãâ·Â -> count°¡ Â¦¼ö¸é °¡¿îµ¥ µÎ°³ÀÇ °ªÀ» Ãâ·Â
+void midprint(link head,int count) { // ê°€ìš´ë° ìž…ë ¥ ê°’ ì¶œë ¥ -> countê°€ ì§ìˆ˜ë©´ ê°€ìš´ë° ë‘ê°œì˜ ê°’ì„ ì¶œë ¥
 	int half = count / 2;
 	link nextnode = head;
 	if (count % 2 == 0) {
@@ -94,7 +94,7 @@ void midprint(link head,int count) { // °¡¿îµ¥ ÀÔ·Â °ª Ãâ·Â -> count°¡ Â¦¼ö¸é °¡
 	}
 }
 
-void reverse_print(link head) { //¿ª¼ø Ãâ·Â
+void reverse_print(link head) { //ì—­ìˆœ ì¶œë ¥
 	if (head->next == NULL) {
 		printf("%d ", head->value);
 		return;
@@ -103,37 +103,40 @@ void reverse_print(link head) { //¿ª¼ø Ãâ·Â
 	printf("%d ", head->value);
 }
 
-link remove_node(link node) { //node1, node2, node3 °¡ ÀÖÀ¸¸é node2¸¦ ¾ø¾Ö°í node1 -> node3
-	if (node->next == NULL)
+link remove_node(link node) { //node1, node2, node3 ê°€ ìžˆìœ¼ë©´ node2ë¥¼ ì—†ì• ê³  node1 -> node3
+	if (node->next == NULL){
 		return node;
+	}
 	link xnode = node->next;
 	node->next = xnode->next;
 	free(xnode);
 	return node;
 }
 
-link evennode(link head) { //È¦¼ö¹øÂ° ³ëµå¸¦ »èÁ¦
+link evennode(link head) { //í™€ìˆ˜ë²ˆì§¸ ë…¸ë“œë¥¼ ì‚­ì œ
 	link firstnode = head;
 	head = firstnode->next;
 	free(firstnode);
 	link node = head;
 	while (1) {
 		node = remove_node(node);
-		if (node->next == NULL)
+		if (node->next == NULL){
 			break;
+		}
 		node = node->next;
 	}
 	return head;
 }
 
-void allnodefree(link head) { // ¸ðµç µ¿Àû ¸Þ¸ð¸® ÇÒ´ç ÇØÁ¦
-	printf("\nµ¿Àû ¸Þ¸ð¸® ÇØÁ¦ Áß...\n");
+void allnodefree(link head) { // ëª¨ë“  ë™ì  ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ
+	printf("\në™ì  ë©”ëª¨ë¦¬ í•´ì œ ì¤‘...\n");
 	link save;
 	while (1) {
 		save = head->next;
 		free(head);
-		if (save == NULL)
+		if (save == NULL){
 			break;
+		}
 		head = save;
 	}
 }
