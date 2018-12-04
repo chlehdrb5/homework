@@ -21,7 +21,7 @@ void allnodefree(link head);
 int main() {
 	int num = 0, count;
 	link head = NULL;
-	printf("띄어쓰기로 정수값을 입력하시오 (마지막에 -1을 입력 후 엔터) : ");
+	printf("띄어쓰기로 정수값을 입력하시오 (마지막에 -1을 입력 후 엔터) : "); // 2개 이상 입력
 	while (1) {
 		scanf_s("%d", &num);
 		if (num == -1) //
