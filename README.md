@@ -1,4 +1,4 @@
-# Algorithm_03
+# Algorithm_03 최동규
 
 # MODEL_1
 
